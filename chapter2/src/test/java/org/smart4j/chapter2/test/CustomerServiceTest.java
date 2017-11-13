@@ -1,4 +1,4 @@
-package chapter2;
+package org.smart4j.chapter2.test;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.smart4j.chapter2.helper.DatabaseHelper;
 import org.smart4j.chapter2.model.Customer;
 import org.smart4j.chapter2.service.CustomerService;
 
@@ -28,8 +29,10 @@ public class CustomerServiceTest {
 	}
 	
 	@Before  //初始化方法   对于每一个测试方法都要执行一次（注意与BeforeClass区别，后者是对于所有方法执行一次）
-	public void init(){
-		//TODO初始化数据库
+	public void init() throws Exception{
+		DatabaseHelper.executeSqlFile("sql/customer_init.sql");
+		//TODO
+		//初始化数据库
 	}
 	
 	@Test
@@ -44,6 +47,17 @@ public class CustomerServiceTest {
 		long id = 1;
 		Customer customer = customerService.getCustomer(id);
 		Assert.assertNotNull(customer);
+	}
+	
+	@Test
+	public void createCustomerListTest() throws Exception{
+		Map<String,Object> fieldMap = new HashMap<String,Object>();
+		fieldMap.put("name", "customer100");
+		fieldMap.put("contact", "John");
+		fieldMap.put("telephone", "13512345678");
+		boolean result = customerService.createCustomer(fieldMap);
+		Assert.assertTrue(result);
+		
 	}
 	
 	@Test
@@ -64,3 +78,4 @@ public class CustomerServiceTest {
 	
 
 }
+
