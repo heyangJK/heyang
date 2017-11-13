@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/customer_create")  //这个Servlet只有一个请求路径但可以同时处理两种不同的请求（doGet/doPost/doPut/doDelete）
 public class CustomerCreateServlet extends HttpServlet{
+	
 	/**
 	 * 进入 创建客户 界面
 	 */
