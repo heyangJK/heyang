@@ -9,6 +9,8 @@ import java.io.Writer;
 import java.util.Collection;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * String 帮助类
  * 
@@ -125,4 +127,15 @@ public class StringUtil {
 		if (!file.exists())
 			file.mkdirs();
 	}
+	/**
+     * 分割字符串
+     * @param str
+     * @return
+     */
+    public static String[] splitString(String str,String s) {
+        if (isNotEmpty(str)){
+            return StringUtils.split(str,s);
+        }
+        return null;
+    }
 }

@@ -58,3 +58,7 @@ public final class ControllerHelper {
 		return ACTION_MAP.get(request);
 	}
 }
+
+//可见，我们在ControllerHelper中封装了一个ActionMap，通过它来存放Request与Handler之间的映射关系
+//，然后通过ClassHelper来获取所有带有Controller注解的类，接着遍历这些Controller类，从Action注解中提取URL，
+//最后初始化Request与Handler之间的映射关系
