@@ -43,7 +43,7 @@ public class DispatcherServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {  
         //super.init(config);  
         //初始化相关Helper类  
-        HelperLoader.init();  
+        HelperLoader.init();  //！！！！！
         //获取ServletContext对象，用于注册servlet  
         ServletContext servletContext = config.getServletContext();  
         //注册处理jsp的servlet  
